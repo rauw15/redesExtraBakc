@@ -35,4 +35,23 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// Ruta para eliminar un producto
+router.delete('/api/products/:id', async (req, res) => {
+    const { id } = req.params;
+    
+    try {
+      // Buscar y eliminar el producto por su ID
+      const result = await Product.findByIdAndDelete(id);
+      
+      if (!result) {
+        return res.status(404).json({ message: 'Producto no encontrado' });
+      }
+      
+      res.status(200).json({ message: 'Producto eliminado con éxito' });
+    } catch (err) {
+      res.status(500).json({ message: 'Error al eliminar el producto' });
+    }
+  });
+  
+
 module.exports = router;
