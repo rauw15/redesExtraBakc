@@ -20,7 +20,7 @@ app.use("/auth", require("./routes/auth"));
 app.use("/products", require("./routes/products"));
 
 // Puerto desde variable de entorno
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
