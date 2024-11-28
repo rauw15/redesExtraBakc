@@ -4,7 +4,9 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 const router = express.Router();
-const SECRET_KEY = "mi_secreto";
+
+// Cargar la clave secreta desde las variables de entorno
+const SECRET_KEY = process.env.JWT_SECRET;
 
 // Registro
 router.post("/register", async (req, res) => {
